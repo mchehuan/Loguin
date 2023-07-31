@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Turnos</title>
+  <!-- Agregar los enlaces a los archivos de CSS de Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS personalizado -->
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Gestión de Turnos</h2>
+            <form id="turnoForm">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="fecha">Fecha:</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" required>
+              </div>
+              <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input type="time" class="form-control" id="hora" name="hora" required>
+              </div>
+              <div class="form-group">
+                <label for="profesional">Profesional:</label>
+                <select class="form-control" id="profesional" name="profesional" required>
+                  <option value="" disabled selected>Seleccionar profesional</option>
+                  <option value="Dr. Juan Pérez">Dr. Juan Pérez</option>
+                  <option value="Dra. María Gómez">Dra. María Gómez</option>
+                  <!-- Agregar más opciones de profesionales aquí -->
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Pedir Turno</button>
+            </form>
+          </div>
+        </div>
+        <div class="mt-5">
+          <h3>Mis Turnos</h3>
+          <ul class="list-group" id="turnosList">
+            <!-- Aquí se mostrarán los turnos agregados -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agregar los enlaces a los archivos de JavaScript de Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="turno.js"></script>
+</body>
+
+</html>
+
