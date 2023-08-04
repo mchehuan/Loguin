@@ -1,5 +1,4 @@
-// Datos simulados para turnos guardados (esto es solo un ejemplo, en una aplicación real, usarías una base de datos o LocalStorage)
-const turnosGuardados = [];
+// Archivo "turno.js"
 
 // Función para obtener los turnos guardados almacenados en LocalStorage
 function obtenerTurnosGuardados() {
@@ -22,7 +21,7 @@ function mostrarTurnosGuardados(turnosGuardadosArray) {
   turnosGuardadosArray.forEach((turno, index) => {
     const listItem = document.createElement('li');
     listItem.className = 'list-group-item';
-    listItem.textContent = `Paciente: ${turno.nombre} - Fecha: ${turno.fecha} - Hora: ${turno.hora} - Profesional: ${turno.profesional}`;
+    listItem.textContent = `Paciente: ${turno.nombre} - Fecha: ${turno.fecha} - Hora: ${turno.hora} - Profesional: ${turno.profesional} - Patología: ${turno.patologia}`; // Agregado
 
     // Agregar botón de eliminar al ítem de la lista de turnosGuardadosArray
     const deleteButton = document.createElement('button');
@@ -58,6 +57,7 @@ function eliminarTurnoGuardado(index, turnosGuardadosArray) {
 
 document.addEventListener('DOMContentLoaded', function () {
   const turnoForm = document.getElementById('turnoForm');
+  const verTurnosButton = document.getElementById('verTurnosBtn'); // Agregado
 
   // Obtener los turnos guardados almacenados en LocalStorage y mostrarlos en la lista
   const turnosGuardadosArray = obtenerTurnosGuardados();
@@ -71,23 +71,36 @@ document.addEventListener('DOMContentLoaded', function () {
     const fecha = document.getElementById('fecha').value;
     const hora = document.getElementById('hora').value;
     const profesional = document.getElementById('profesional').value;
+    const patologia = document.getElementById('patologia').value;
 
     // Crear un nuevo objeto de turno con los datos del formulario
     const nuevoTurno = {
       nombre,
       fecha,
       hora,
-      profesional
+      profesional,
+      patologia
     };
 
     // Agregar el nuevo turno al array de turnos guardados
-    turnosGuardados.push(nuevoTurno);
+    turnosGuardadosArray.push(nuevoTurno);
     // Guardar los turnos guardados actualizados en LocalStorage
-    guardarTurnosGuardados(turnosGuardados);
+    guardarTurnosGuardados(turnosGuardadosArray);
 
     // Mostrar los turnos guardados actualizados en la lista
-    mostrarTurnosGuardados(turnosGuardados);
+    mostrarTurnosGuardados(turnosGuardadosArray);
 
     turnoForm.reset(); // Limpiar el formulario después de agregar el turno
   });
+
+  // Mostrar u ocultar la lista de turnos guardados al hacer clic en el botón
+  verTurnosButton.addEventListener('click', function () {
+    const listaTurnosGuardados = document.getElementById('turnosGuardadosList');
+    if (listaTurnosGuardados.style.display === 'none') {
+      listaTurnosGuardados.style.display = 'block';
+    } else {
+      listaTurnosGuardados.style.display = 'none';
+    }
+  });
 });
+

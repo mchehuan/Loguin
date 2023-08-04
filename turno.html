@@ -31,24 +31,28 @@
             <label for="profesional">Profesional:</label>
             <select class="form-control" id="profesional" name="profesional" required>
               <option value="">Seleccione un profesional</option>
-              <!-- Agregar aquí las opciones de profesionales -->
-              <option value="Dr. Juan Pérez">Dr. Juan Pérez</option>
-              <option value="Dra. María Gómez">Dra. María Gómez</option>
-              <option value="Dr. Carlos López">Dr. Carlos López</option>
-              <option value="Dra. Laura Rodríguez">Dra. Laura Rodríguez</option>
-              <option value="Lic. Ana Fernández">Lic. Ana Fernández</option>
+              <option value="Dr. Juan Pérez">Dr. Pablo Zottola - Médico General</option>
+              <option value="Dra. María Gómez">LIC. Chehuan Maximiliano - Pediatra</option>
+              <option value="Dr. Carlos López">Dr. Pablo Cazon - Cardiologo</option>
+              <option value="Dra. Laura Rodríguez">LIC. Tomas Jerez - Nutricionista</option>
+              <option value="Lic. Ana Fernández">Dr. Gonzalo Ruiz - Traumatologo</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label for="patologia">Describa su Patología:</label>
+            <textarea class="form-control" id="patologia" name="patologia" rows="4" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Solicitar Turno</button>
         </form>
       </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-3">
       <div class="col-md-6">
         <h2 class="text-center">Turnos Guardados</h2>
         <ul id="turnosGuardadosList" class="list-group">
           <!-- Aquí se mostrarán los turnos guardados -->
         </ul>
+        <button id="verTurnosBtn" class="btn btn-secondary btn-block mt-3">Ver Turnos Guardados</button>
       </div>
     </div>
   </div>
@@ -61,3 +65,4 @@
 </body>
 
 </html>
+
